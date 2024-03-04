@@ -24,3 +24,13 @@ console.log(result);
 //filter
 const result_1 = arr.filter((iteam) => iteam < 3);
 console.log(result_1);
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Nhập vào một giá trị: ', (answer) => {
+    rl.close();
+});

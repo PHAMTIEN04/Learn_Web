@@ -58,3 +58,69 @@ console.log("ex10");
 arr = arr.filter((item)=>item%2==0);
 
 console.log(arr);
+// gom map
+function map_f(arr,c){
+    console.log("**Menu Map**");
+    console.log("1.In ra cac so nguyen to");
+    console.log("2.Tim cac so le");
+    console.log("3.Tinh tong cac phan tu trong mang");
+    // console.log("0.Thoat");
+    console.log("Chon: ",c);
+    switch(c){
+        case 1:
+            arr.map((item)=>{
+            if(so_nt(item)) console.log(item);
+        })
+            break;
+        case 2:
+            arr.map((item) => {
+                if(item%2==1) console.log(item);
+            })
+            break;
+        case 3:
+            var sum = 0;
+            arr.map((item)=>{
+                sum += item;
+            })
+            console.log(sum);
+            break;
+        default:
+            console.log("Error!@!!");
+            break;
+    }       
+
+
+}
+//gom filter
+function fill_f(arr,c){
+    console.log("**Menu Filter**");
+    console.log("1.In ra cac so nguyen to");
+    console.log("2.Tim cac so chan");
+    console.log("3.Loc le va tinh tong cac phan tu trong mang");
+    // console.log("0.Thoat");
+    console.log("Chon: ",c);
+    switch(c){
+        case 1:
+            const d = arr.filter((item) => (so_nt(item)));
+            console.log(d);
+            break;
+        case 2:
+            const c = arr.filter((item) => item%2 != 1);
+            console.log(c)
+            break;
+        case 3:
+            var sum = 0;
+            arr.filter((item)=>{
+                if(item%2==1) sum+=item;
+            })
+            console.log(sum)
+            break;
+        default:
+            console.log("Error!@!!");
+            break;
+    }       
+
+
+}
+map_f(arr,3);
+fill_f(arr,1);

@@ -15,41 +15,46 @@ class Students {
          this.Score = Score;
          this.DOB = DOB;
      } 
-     
+    GetFullName(){
+        return this.LastName + " " + this.FirstName;
+    }
+    GetGender(){
+        return this.Gender ? "Nam":"Nữ";
+    } 
     Hienthi(){
-        console.log("Mã sinh viên: ",this.ID);
-        console.log("Họ và tên: ",this.LastName +" " + this.FirstName);
-        console.log("Giới tính: ",this.Gender ? "Nam":"Nữ");
-        console.log("Ngày sinh: ",this.DOB);
+        return "Mã sinh viên: " + this.ID +"\n" +"Họ và tên: "+ this.GetFullName() + "\n" + "Giới tính: " + this.GetGender() + "\n" + "Ngày sinh: " + this.DOB; 
+        // console.log("Mã sinh viên: ",this.ID);
+        // console.log("Họ và tên: ",this.GetFullName());
+        // console.log("Giới tính: ",this.GetGender());
+        // console.log("Ngày sinh: ",this.DOB);
     }
 
     TBC(){
-        var sum = 0;
-        this.Score.map((value) =>{
-            sum+=value;
-        })
-        return sum/this.Score.length;
+        var s = this.Score.reduce((total ,value)=>{
+            return total + value;
+        });
+        return s/this.Score.length;
+        
     }
     HocLuc(){
         if(s.TBC() <= 10 && s.TBC() > 8){
-            console.log("Giỏi");
+            return "Giỏi";
         }
         else if(s.TBC() > 6.5){
-            console.log("Khá");
+            return "Khá";
         }
         else if(s.TBC() > 3){
-            console.log("Trung bình");
+            return "Trung bình";
         }
         else{
-            console.log("Yếu");
+            return "Yếu";
         }
     }
 
 }
      
-var s = new Students("122","Tiến","Phạm",true,[9,8,10],"17/11/2004");
-s.Hienthi();
+var s = new Students("122","Tiến","Phạm",true,[2,8,10],"17/11/2004");
+console.log(s.Hienthi());
 console.log("Điểm trung bình sinh viên: ",s.TBC());
-s.HocLuc()
+console.log(s.HocLuc())
 
-var a :Date ;
